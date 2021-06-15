@@ -1,8 +1,18 @@
-<div>
-    <div>
-        <input type="text">
+<div class="center-screen">
+  <form action="/hello" method="post">
+    <div class="form-field">
+      <label class="input-group-text" id="inputGroup-sizing-lg" for="userbox"
+        >Username</label
+      >
+      <input type="text" class="form-control" name="userbox" />
     </div>
-    <div>
-        <input type="text">
+
+    <div class="form-field">
+      <label class="input-group-text" id="inputGroup-sizing-lg" for="passbox"
+        >Password</label
+      >
+      <input type="password" class="form-control" name="passbox" />
     </div>
+    <input type="submit" class="login-button btn btn-primary" value="Login" />
+  </form>
 </div>
