@@ -7,7 +7,8 @@ import { LoginPageComponent } from './Pages/login-page/login-page.component';
 import { HomePageComponent } from './Pages/home-page/home-page.component';
 import { ContactPageComponent } from './Pages/contact-page/contact-page.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
-
+import { DashboardComponent } from './Pages/dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,11 +16,13 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
     HomePageComponent,
     ContactPageComponent,
     PageNotFoundComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
