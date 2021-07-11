@@ -1,18 +1,16 @@
 <div class="center-screen">
-  <form action="http://127.0.0.1:5000/login" method="post">
     <div class="form-field">
       <label class="input-group-text" id="inputGroup-sizing-lg" for="userbox"
         >Username</label
       >
-      <input type="text" class="form-control" name="userbox" />
+      <input type="text" class="form-control" name="userbox" (keyup)="updateUser($event)"/>
     </div>
 
     <div class="form-field">
       <label class="input-group-text" id="inputGroup-sizing-lg" for="passbox"
         >Password</label
       >
-      <input type="password" class="form-control" name="passbox" />
+      <input type="password" class="form-control" name="passbox" (keyup)="updatePass($event)"/>
     </div>
-    <input type="submit" class="login-button btn btn-primary" value="Login" />
-  </form>
+    <input type="submit" class="login-button btn btn-primary" value="Login" (click)="handleLogin($event)"/>
 </div>
