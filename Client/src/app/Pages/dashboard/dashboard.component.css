@@ -1,0 +1,28 @@
+.triggerButton {
+    display: block;
+    margin: 128px auto;
+    width: 256px;
+    height: 100px;
+    border-style: solid;
+    border-color: green;
+}
+
+.triggerButton:hover {
+    animation: danielGuo 3s linear;
+}
+
+.scheduling {
+    width: 256px;
+    margin: 8px auto;
+}
+@keyframes danielGuo {
+    from {
+        transform: rotateX(0deg);
+    }
+
+    to {
+        background-color: red;
+        transform: translateX(200%);
+
+    }
+}
