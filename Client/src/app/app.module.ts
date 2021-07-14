@@ -9,6 +9,7 @@ import { ContactPageComponent } from './Pages/contact-page/contact-page.componen
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     ContactPageComponent,
     PageNotFoundComponent,
     PageNotFoundComponent,
-    DashboardComponent
+    DashboardComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
