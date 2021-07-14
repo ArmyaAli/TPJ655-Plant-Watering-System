@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-  url = '';
+  url = 'http://166.48.21.182:5000/login';
   loginEndpoint = '';
   user = '';
   pass = '';
@@ -21,17 +21,18 @@ export class LoginPageComponent implements OnInit {
   }
 
   handleLogin($e: Event) {
-    this.http.post<any>(this.url, { username: this.user, password: this.pass});
+    this.http.post<string>(this.url, { username: this.user, password: this.pass }, { responseType: 'text' as 'json'}).subscribe(
+         (data) => console.log(data), // data is string
+          (error) => console.log(error)
+    );
   }
 
   updateUser(e: any) {
     this.user = e.target.value;
-    console.log(this.user)
   }
 
   updatePass(e: any) {
     this.pass = e.target.value;
-    console.log(this.pass)
   }
 
 }
