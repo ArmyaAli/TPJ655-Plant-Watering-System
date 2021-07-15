@@ -1,0 +1,37 @@
+.footerContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 256px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: lightgrey;
+    background: lightgreen;
+}
+
+.footerTop {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+.nameIconCombo {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    margin: 8px;
+}
+
+.footerBottom {
+    width: 80%;
+    text-align: center;
+}
+hr {
+    width: 100%;
+}
+
