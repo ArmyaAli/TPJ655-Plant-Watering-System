@@ -1,0 +1,32 @@
+.scheduling-content {
+    
+}
+.schedule-heading {
+    width: 100%;
+    text-align: center;
+}
+
+.single-button-container {
+    width: 100%;
+    height: calc(100% - 24px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.water-btn {
+    display: block;
+    width: 90%;
+    min-height: 144px;
+    margin: 8px auto;
+    font-size: 64px;
+}
+
+.ar-schedule-btn {
+    width: 200px;
+}
+
+@media only screen and (max-width: 800px) {
+.water-btn {
+    font-size: 18px;
+}
+}
