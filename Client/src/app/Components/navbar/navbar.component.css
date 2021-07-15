@@ -1,8 +1,3 @@
-.heading {
-    font-size: 24px;
-    margin-left: 8px;
-}
-
 nav {
     width: 100%;
     height: 80px;
@@ -12,10 +7,14 @@ nav {
     background: lightgreen;
 }
 
+.heading {
+    font-size: 24px;
+    margin-left: 8px;
+}
+
 .navlinks {
     display: flex;
     justify-content: space-between;
-    width: 40%;
 }
 
 li {
@@ -30,7 +29,5 @@ li {
     nav {
         flex-direction: column;
     }
-    .navlinks {
-        width: 100%;
-    }
+
 }
