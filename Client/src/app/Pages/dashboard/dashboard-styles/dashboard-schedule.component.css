@@ -1,0 +1,19 @@
+.scheduling-content {
+    
+}
+.schedule-heading {
+    width: 100%;
+    text-align: center;
+}
+
+.single-button-container {
+    width: 100%;
+    height: calc(100% - 24px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ar-schedule-btn {
+    width: 200px;
+}

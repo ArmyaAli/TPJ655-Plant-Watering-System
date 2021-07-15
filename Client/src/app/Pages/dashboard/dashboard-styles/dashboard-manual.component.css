@@ -1,0 +1,13 @@
+.water-btn {
+    display: block;
+    width: 90%;
+    min-height: 144px;
+    margin: 8px auto;
+    font-size: 64px;
+}
+
+@media only screen and (max-width: 800px) {
+    .water-btn {
+        font-size: 18px;
+    }
+}
