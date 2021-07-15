@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { FooterComponent } from './Components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
     PageNotFoundComponent,
     PageNotFoundComponent,
     DashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
