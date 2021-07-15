@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './Pages/login-page/login-page.component';
@@ -12,6 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material-module';
+import { globalStateService } from './State/global';
+import { DeviceStatusComponentComponent } from './Components/device-status-component/device-status-component.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,15 +25,17 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     PageNotFoundComponent,
     DashboardComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    DeviceStatusComponentComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    MaterialModule
   ],
-  providers: [],
+  providers: [globalStateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
