@@ -11,6 +11,7 @@ import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { FooterComponent } from './Components/footer/footer.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { FooterComponent } from './Components/footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
