@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
+import { globalStateService } from 'src/app/State/global';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -10,20 +12,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-  url = 'http://166.48.21.182:5000/login';
+  url = 'http://127.0.0.1:5000/login';
   loginEndpoint = '';
   user = '';
   pass = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private state: globalStateService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   handleLogin($e: Event) {
-    this.http.post<string>(this.url, { username: this.user, password: this.pass }, { responseType: 'text' as 'json'}).subscribe(
-         (data) => console.log(data), // data is string
-          (error) => console.log(error)
+    this.http.post<string>(this.url, { username: this.user, password: this.pass }, { responseType: 'text' as 'json' }).subscribe(
+      (rawdata: any) => {
+        try {
+          const data = JSON.parse(rawdata);
+          const status = data['status'];
+          if (status == 'success') {
+            this.router.navigate(['/dashboard'])
+            this.state.loggedIn = true;
+            this.state.username = this.user;
+          } else {
+            console.log('not successful')
+          }
+        } catch (err) {
+          console.error('Error [Proc handleLogin]');
+        }
+      },
+      (error) => console.log(error)
     );
   }
 
