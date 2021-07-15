@@ -4,6 +4,7 @@
             <div class="box-headingContainer">
                 <span class="box-heading">Device Status</span>
             </div>
+            <app-device-status-component></app-device-status-component>
         </div>
         <div class="dashbox">
             <div class="box-headingContainer">
@@ -12,7 +13,6 @@
             <div class="scheduling-content">
                 <span class="schedule-heading">Current Active Schedules</span>
                 <button type="button" class="btn btn-success ar-schedule-btn">Add a Schedule +</button>
-                <button type="button" class="btn btn-success ar-schedule-btn">Remove a Schedule -</button>
             </div>
         </div>
         <div class="dashbox">
@@ -27,6 +27,7 @@
             <div class="box-headingContainer">
                 <span class="box-heading">Account Information</span>
             </div>
+            <button type="button" class="btn btn-success" (click)="openDialog()">Update Account Information</button>
         </div>
     </div>
 </div>
