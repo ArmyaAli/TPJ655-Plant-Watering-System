@@ -13,7 +13,9 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material-module';
 import { globalStateService } from './State/global';
-import { DeviceStatusComponentComponent } from './Components/device-status-component/device-status-component.component';
+import { DeviceStatusComponent } from './Components/device-status/device-status-component.component';
+import { AccountInfoComponent } from './Components/account-info/account-info.component';
+import { SchedulingContentComponent, updateScheduleDialogComponent } from './Components/scheduling-content/scheduling-content.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,11 @@ import { DeviceStatusComponentComponent } from './Components/device-status-compo
     DashboardComponent,
     NavbarComponent,
     FooterComponent,
-    DeviceStatusComponentComponent,
+    DeviceStatusComponent,
+    AccountInfoComponent,
+    SchedulingContentComponent,
+    updateScheduleDialogComponent
+    
   ],
   imports: [
     BrowserModule,
