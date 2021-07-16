@@ -8,7 +8,8 @@
     border-style: solid;
     border-width: 0.5px;
     border-color: lightgrey;
-    background: lightgreen;
+    background: #198754;
+    color: white;
 }
 
 .footerTop {
