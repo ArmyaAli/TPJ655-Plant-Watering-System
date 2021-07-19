@@ -2,19 +2,23 @@
     <div class="info-piece-container">
         <div class="info-piece">
             <span>Username</span>
-            <span>PlaceHolder</span>
+            <span>{{ data?.username ?? 'No Data/Not Logged In' }}</span>
         </div>
         <div class="info-piece">
             <span>First Name</span>
-            <span></span>
+            <span>{{ data?.fName ?? 'No Data/Not Logged In' }}</span>
         </div>
         <div class="info-piece">
             <span>Last Name</span>
-            <span></span>
+            <span>{{ data?.lName ?? 'No Data/Not Logged In' }}</span>
         </div>
         <div class="info-piece">
             <span>Address</span>
-            <span></span>
+            <span>{{ data?.address ?? 'No Data/Not Logged In' }}</span>
+        </div>
+        <div class="info-piece">
+            <span>Device model</span>
+            <span>{{ data?.model ?? 'No Data/Not Logged In' }}</span>
         </div>
     </div>
     <button type="button" class="btn btn-success account-update-button" (click)="openDialog()">Update Account
