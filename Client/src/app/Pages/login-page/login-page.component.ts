@@ -29,7 +29,12 @@ export class LoginPageComponent implements OnInit {
           const data = JSON.parse(rawdata);
           const status = data['status'];
           if (status == 'success') {
-            this.router.navigate(['/dashboard'])
+            this.router.navigate(['/dashboard'],
+            {
+              queryParams: {
+                user: this.user
+              }
+            })
             this.state.loggedIn = true;
             this.state.username = this.user;
           } else {
