@@ -6,6 +6,14 @@
     font-size: 64px;
 }
 
+.single-button-container {
+    width: 100%;
+    height: calc(100% - 24px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media only screen and (max-width: 800px) {
     .water-btn {
         font-size: 18px;

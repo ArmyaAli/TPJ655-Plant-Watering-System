@@ -12,22 +12,22 @@
             </div>
             <div class="scheduling-content">
                 <span class="schedule-heading">Current Active Schedules</span>
-                <button type="button" class="btn btn-success ar-schedule-btn">Add a Schedule +</button>
             </div>
+            <app-scheduling-content></app-scheduling-content>
         </div>
         <div class="dashbox">
             <div class="box-headingContainer">
                 <span class="box-heading">Manual Water</span>
             </div>
             <div class="single-button-container">
-                <button type="button" class="btn btn-success water-btn">Click Me To Water Plant</button>
+                <button type="button" class="btn btn-success water-btn" (click)="waterThePlant()">Click Me To Water Plant</button>
             </div>
         </div>
         <div class="dashbox">
             <div class="box-headingContainer">
                 <span class="box-heading">Account Information</span>
             </div>
-            <button type="button" class="btn btn-success" (click)="openDialog()">Update Account Information</button>
+            <app-account-info></app-account-info>
         </div>
     </div>
 </div>
