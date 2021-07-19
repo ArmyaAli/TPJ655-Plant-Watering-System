@@ -1,0 +1,10 @@
+<mat-card class="calender-card">
+    <mat-calendar (selectedChange)="selected = $event"></mat-calendar>
+</mat-card>
+<span class="label">Time (Hours)</span>
+<input type="text" class="form-control textinput" placeholder="08">
+<span class="label">Time (Minutes)</span>
+<input type="text" class="form-control textinput" placeholder="45">
+<span class="label">AM/PM</span>
+<input type="text" class="form-control textinput" placeholder="PM">
+<button class="btn btn-primary" type="submit" (click)="submitUpdatedInfo($event)">Add Schedule</button>
