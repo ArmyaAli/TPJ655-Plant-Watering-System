@@ -2,19 +2,19 @@
 <div class="box-container">
     <div class='input-container'>
         <span class="label">Username</span>
-        <input type="text" class="form-control textinput" placeholder="Username">
+        <input type="text" class="form-control textinput" placeholder="Username" (keyup)="updateUsername($event)">
     </div>
     <div class='input-container'>
         <span class="label">First Name</span>
-        <input type="text" class="form-control textinput" placeholder="First Name">
+        <input type="text" class="form-control textinput" placeholder="First Name" (keyup)="updateFname($event)">
     </div>
     <div class='input-container'>
         <span class="label">Last Name</span>
-        <input type="text" class="form-control textinput" placeholder="Last Name">
+        <input type="text" class="form-control textinput" placeholder="Last Name" (keyup)="updateLname($event)">
     </div>
     <div class='input-container'>
         <span class="label">Address</span>
-        <input type="text" class="form-control textinput" placeholder="Address">
+        <input type="text" class="form-control textinput" placeholder="Address" (keyup)="updateAddr($event)">
     </div>
     <button class="btn btn-primary" type="submit" (click)="submitUpdatedInfo($event)">Update</button>
 </div>
