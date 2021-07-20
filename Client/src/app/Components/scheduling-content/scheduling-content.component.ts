@@ -7,11 +7,17 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./scheduling-content.component.css']
 })
 export class SchedulingContentComponent implements OnInit {
-
-  constructor(public dialog: MatDialog) {
+  data: any = {};
+  constructor(public dialog: MatDialog, private http: HttpClient) {
   }
 
+
   ngOnInit(): void {
+    const scheduleUrl = "http://127.0.0.1:5000/schedule"
+    this.http.get<any>(scheduleUrl).subscribe((data: any) => {
+      console.log(data)
+      this.data = data;
+    });
   }
 
   openDialog() {

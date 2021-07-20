@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
 import { interval, timer } from 'rxjs';
+import { globalStateService } from 'src/app/State/global';
 
 @Component({
   selector: 'app-device-status-component',
@@ -8,12 +10,21 @@ import { interval, timer } from 'rxjs';
   styleUrls: ['./device-status-component.component.css']
 })
 
+
 export class DeviceStatusComponent implements OnInit {
-  constructor() {
-      const poll = timer(1000, 1000 * 60 * 1); // POLL EVERY 5 minutes
+  statusUrl = "http://127.0.0.1:5000/status"
+  status: string | null;
+  constructor(private http: HttpClient, public state: globalStateService) {
+      this.status = null
+      const poll = timer(1000, 500 * 60 * 1); // POLL EVERY 1 minutes
       poll.subscribe(() => {
-        // do some work
-        console.log('Hello world')
+        this.http.get(this.statusUrl).subscribe(
+        (data: any) => {
+          this.state.status = data['status'];
+        },
+        (error) => {
+          this.state.status = 'down';
+        })
       })
   }
 

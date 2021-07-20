@@ -26,17 +26,13 @@ export class DashboardComponent implements OnInit {
   }
 
   waterThePlant() {
-    const url = "http://166.48.21.182:1600/water";
-    this.http.post<string>(url, { status: "watering" }, { responseType: 'text' as 'json' }).subscribe(
-      (rawdata: any) => {
-        try {
-          const data = JSON.parse(rawdata);
-          
-        } catch (err) {
-          console.error('Error [Proc handleLogin]');
-        }
+    const wateringURL = "http://127.0.0.1:5000/water";
+    this.state.status = 'watering'
+    this.http.post<string>(wateringURL, { status: "watering" }, { responseType: 'text' as 'json' }).subscribe(
+      (data: any) => {
+        this.state.status = 'idle'
       },
-      (error) => console.log(error)
+      (error) => this.state.status = 'down'
     );
   }
 
