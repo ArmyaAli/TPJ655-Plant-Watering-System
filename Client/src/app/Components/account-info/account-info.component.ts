@@ -31,8 +31,8 @@ export class AccountInfoComponent implements OnInit {
   ngOnInit(): void {
     // we can make a server request
     const accountInfoUrl = 'http://127.0.0.1:5000/accountInfo'
-    const updateInfoURL = 'http://127.0.0.1:5000/accountInfo'
-    this.http.get<any>(accountInfoUrl, {
+    const prod_accountInfoUrl = "http://166.48.21.182:11000/accountInfo"
+    this.http.get<any>(prod_accountInfoUrl, {
       params: {
         user: this.state.username
       }
@@ -44,7 +44,7 @@ export class AccountInfoComponent implements OnInit {
     this.dialog.afterAllClosed.subscribe((data) => {
       if (this.state.SendQueue.length > 0) {
         const newData = this.state.SendQueue.shift()
-        this.http.post<any>(updateInfoURL, newData, { params: { user: this.state.username } }).subscribe((data) => {
+        this.http.post<any>(prod_accountInfoUrl, newData, { params: { user: this.state.username } }).subscribe((data) => {
           
           if (data.status === 'success') {
             this.router.navigate([],

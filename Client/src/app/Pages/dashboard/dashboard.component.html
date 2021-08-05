@@ -17,7 +17,15 @@
                 <span class="box-heading">Manual Water</span>
             </div>
             <div class="single-button-container">
-                <button type="button" class="btn btn-success water-btn" (click)="waterThePlant()">Click Me To Water Plant</button>
+                <div>
+                    <button type="button" class="btn btn-success water-btn" (click)="waterThePlant()">Click Me To Water
+                        Plant</button>
+                </div>
+                <div>
+                    <label class="input-group-text" id="inputGroup-sizing-md" for="userbox">Watering Time</label>
+                    <input type="text" class="form-control" name="timeBox" (keyup)="updateWateringTime($event)" />
+                    <div *ngIf="invalidTimeGiven" style="color: red;">That's not a valid input</div>
+                </div>
             </div>
         </div>
         <div class="dashbox">

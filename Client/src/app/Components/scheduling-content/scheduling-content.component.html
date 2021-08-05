@@ -1,10 +1,20 @@
 <div class="schedule-content">
-    <div class="list-container">
-        <ul class="list-group list-group-horizontal-md">
-            <li class="list-group-item flex-fill">Time</li>
-            <li class="list-group-item flex-fill">Day</li>
-            <li class="list-group-item flex-fill">Repeat</li>
-        </ul>
+    <div class="schedule-item-container" *ngFor="let schedule of state.schedules" role="alert">
+        <div>
+            <mat-chip-list aria-label="">
+                <mat-chip class="chips" *ngFor="let day of schedule.days">{{day}}</mat-chip>
+                <mat-chip class="chips">{{schedule.hour}}:{{schedule.minute}}-{{schedule.dayHalf}}</mat-chip>
+                <mat-chip class="chips">{{ schedule.repeating ? "Repeating!" : "Non-Repeating"}}</mat-chip>
+            </mat-chip-list>
+        </div>
+        <button type="button" class="btn btn-success delete-button" (click)="deleteSchedule(schedule.id)">Delete</button>
     </div>
-    <button type="button" class="btn btn-success add-schedule-button" (click)="openDialog()">Add a Schedule +</button>
+    <div class="input-contianer"> 
+        <button type="button" class="btn btn-success add-schedule-button" (click)="openDialog()">Add a Schedule +</button>
+        <div>
+            <label class="input-group-text" id="inputGroup-sizing-md" for="userbox">Watering Time</label>
+            <input type="text" class="form-control" name="timeBox" (keyup)="updateWateringTime($event)" />
+            <div *ngIf="invalidTimeGiven" style="color: red;">That's not a valid input</div>
+        </div>
+    </div>
 </div>

@@ -12,13 +12,14 @@ import { globalStateService } from 'src/app/State/global';
 
 
 export class DeviceStatusComponent implements OnInit {
+  prod_statusURL = "http://166.48.21.182:11000/status"
   statusUrl = "http://127.0.0.1:5000/status"
   status: string | null;
   constructor(private http: HttpClient, public state: globalStateService) {
       this.status = null
       const poll = timer(1000, 500 * 60 * 1); // POLL EVERY 1 minutes
       poll.subscribe(() => {
-        this.http.get(this.statusUrl).subscribe(
+        this.http.get(this.prod_statusURL).subscribe(
         (data: any) => {
           this.state.status = data['status'];
         },

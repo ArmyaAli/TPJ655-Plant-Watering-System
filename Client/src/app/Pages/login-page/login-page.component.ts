@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
+  prod_url = "http://166.48.21.182:11000/login";
   url = 'http://127.0.0.1:5000/login';
   loginEndpoint = '';
   user = '';
@@ -23,7 +24,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   handleLogin($e: Event) {
-    this.http.post<string>(this.url, { username: this.user, password: this.pass }, { responseType: 'text' as 'json' }).subscribe(
+    this.http.post<string>(this.prod_url, { username: this.user, password: this.pass }, { responseType: 'text' as 'json' }).subscribe(
       (rawdata: any) => {
         try {
           const data = JSON.parse(rawdata);

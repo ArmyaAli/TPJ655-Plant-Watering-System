@@ -1,10 +1,32 @@
 <mat-card class="calender-card">
-    <mat-calendar (selectedChange)="selected = $event"></mat-calendar>
+    <mat-calendar disabled></mat-calendar>
 </mat-card>
-<span class="label">Time (Hours)</span>
-<input type="text" class="form-control textinput" placeholder="08">
-<span class="label">Time (Minutes)</span>
-<input type="text" class="form-control textinput" placeholder="45">
-<span class="label">AM/PM</span>
-<input type="text" class="form-control textinput" placeholder="PM">
-<button class="btn btn-primary" type="submit" (click)="submitUpdatedInfo($event)">Add Schedule</button>
+<mat-button-toggle-group multiple name="fontStyle" (change)="selectionChange($event)"
+    aria-label="Font Style">
+    <mat-button-toggle class="day-btn" value="Mon">Mon</mat-button-toggle>
+    <mat-button-toggle class="day-btn" value="Tue">Tue</mat-button-toggle>
+    <mat-button-toggle class="day-btn" value="Wed">Wed</mat-button-toggle>
+    <mat-button-toggle class="day-btn" value="Thurs">Thurs</mat-button-toggle>
+    <mat-button-toggle class="day-btn" value="Fri">Fri</mat-button-toggle>
+    <mat-button-toggle class="day-btn" value="Sat">Sat</mat-button-toggle>
+    <mat-button-toggle class="day-btn" value="Sun">Sun</mat-button-toggle>
+</mat-button-toggle-group>
+
+<div class="textinput-container">
+    <span class="label" >Time (Hours)</span>
+    <input type="text" (keyup)="updateHours($event)" class="form-control textinput" placeholder="08">
+    <span class="label">Time (Minutes)</span>
+    <input type="text" (keyup)="updateMinutes($event)" class="form-control textinput" placeholder="45">
+    <mat-button-toggle-group name="fontStyle"  (change)="dayHalfSelectionChange($event)"
+        aria-label="Font Style">
+        <mat-button-toggle class="day-btn" value="AM">AM</mat-button-toggle>
+        <mat-button-toggle class="day-btn" value="PM">PM</mat-button-toggle>
+    </mat-button-toggle-group>
+</div>
+<div class="btn-container">
+    <button class="btn btn-primary" type="submit" (click)="submitUpdatedInfo($event)">Add Schedule</button>
+    <mat-button-toggle value="repeating" (change)="setRepeating($event)">Repeating</mat-button-toggle>
+</div>
+<div class="error">
+{{ this.errorMsg }}
+</div>

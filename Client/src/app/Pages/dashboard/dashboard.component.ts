@@ -17,7 +17,8 @@ import { globalStateService } from 'src/app/State/global';
 
 export class DashboardComponent implements OnInit {
   username = '';
-
+  wateringTime = "10";
+  invalidTimeGiven = false;
   constructor(private http: HttpClient, private state: globalStateService) {
     this.username = this.state.username;
   }
@@ -25,10 +26,16 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  waterThePlant() {
+  waterThePlant(): boolean | void {
     const wateringURL = "http://127.0.0.1:5000/water";
+    const prod_wateringURL = "http://166.48.21.182:11000/water";
+
+    if (this.invalidTimeGiven)
+      return;
+
+    this.invalidTimeGiven = false;
     this.state.status = 'watering'
-    this.http.post<string>(wateringURL, { status: "watering" }, { responseType: 'text' as 'json' }).subscribe(
+    this.http.post<string>(prod_wateringURL, { status: "watering", time: this.wateringTime }, { responseType: 'text' as 'json' }).subscribe(
       (data: any) => {
         this.state.status = 'idle'
       },
@@ -36,17 +43,16 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  submitSchedule() {
-    const url = "http://";
-    this.http.post<any>(url, { data: 'Hello From the other side' });
+  updateWateringTime(e: any) {
+    this.wateringTime = e.target.value;
+
+    if(this.wateringTime.length === 0) {
+      this.invalidTimeGiven = false;
+      return;
+    }
+
+    this.invalidTimeGiven = isNaN(Number(this.wateringTime)) ? true : false;
   }
 
-  getAccountInfo() {
-
-  }
-
-  getDeviceStatus() {
-
-  }
 }
 

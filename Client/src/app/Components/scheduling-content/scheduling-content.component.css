@@ -11,7 +11,35 @@
 .list-container {
     width: 60%;
 }
+.schedule-item-container {
+    width: 95%;
+    height: 15%;
+    background-color: #d1e7dd;
+    border-radius: .25rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+.btn-success {
+    height: 32px;
+    font-size: 10px;
+}
 
 .add-schedule-button {
     width: 40%;
+}
+
+
+.chips {
+    background-color: #198754;
+    color: white;
+}
+
+.input-contianer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 }
